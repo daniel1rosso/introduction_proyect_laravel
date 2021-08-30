@@ -9,4 +9,4 @@ Applying the concepts acquired, it was obtained: User administration, login, sen
 - php artisan serve
 
 ## Notes
-https://docs.google.com/document/d/1V2IVbpju4vgsDynds-EgiQK2h6AQFWhEI-kVPyjYqbQ/edit
+https://docs.google.com/document/d/1V2IVbpju4vgsDynds-EgiQK2h6AQFWhEI-kVPyjYqbQ/edit?usp=sharing
