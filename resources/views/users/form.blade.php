@@ -26,10 +26,18 @@
 </label>
 <br>
 <br>
-<label>
-    Password
-    <input class="form-control" type="password" name="password" placeholder="Password..." value="{{ old('password', $user->password) }}">
-</label>
-<br>
-<br>
+@unless($user->id)
+    <label>
+        Password
+        <input class="form-control" type="password" name="password" placeholder="Password..." value="{{ old('password', $user->password) }}">
+    </label>
+    <br>
+    <br>
+    <label>
+        Password Confirmed
+        <input class="form-control" type="password" name="password_confirmation" placeholder="Password..." value="{{ old('password') }}">
+    </label>
+    <br>
+    <br>
+@endunless
 <button class="btn btn-primary">{{ $btnText }}</button>  <button class="btn btn-warning"><a href="{{ route('users') }}" >Atras</a></button>

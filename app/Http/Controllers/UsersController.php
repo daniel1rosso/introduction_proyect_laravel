@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use App\Events\MessageUser;
 
 class UsersController extends Controller
 {
@@ -21,7 +22,7 @@ class UsersController extends Controller
     }
 
     public function index(){
-        $users_systems = User::all();
+        $users_systems = User::with('rol')->get();
         
         return view('users')->with(compact('users_systems'));
     }
@@ -57,6 +58,8 @@ class UsersController extends Controller
         $user = User::find($us->id);
         $roles = Rol::all();
 
+        $this->authorize($user);
+
         return view('users\update-user')->with(compact('user','roles'));
     }
     
@@ -71,12 +74,16 @@ class UsersController extends Controller
             ]),
         ]);
         
+        $this->authorize($user);
+
         return redirect()->route('users', ['user' => $user])->with('status', 'El usuario fue actualizado con exito');
     }
         
     public function destroy(User $user){
         $user->delete();
         $users_systems = User::all();
+
+        $this->authorize($user);
 
         return redirect()->route('users', ['users_systems' => $users_systems])->with('status', 'El usuario fue eliminado con exito');
     }
@@ -87,6 +94,10 @@ class UsersController extends Controller
         $roles = Rol::all();
 
         return view('auth\register')->with(compact('roles', 'user'));
+    }
+
+    public function user_event(){
+        event(new MessageUser("HOLA BRO"));
     }
     
 }

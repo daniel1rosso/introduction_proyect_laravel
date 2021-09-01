@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Rol;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -43,6 +44,11 @@ Route::get('roles', function(){
     return Rol::with('user')->get();
 })->name('roles');
 
+Route::get('usuarios', function(){
+    return User::with('rol')->get();
+})->name('usuarios');
+
+Route::get('event', 'App\Http\Controllers\UsersController@user_event')->name('event');
 
 Route::get('register', 'App\Http\Controllers\UsersController@register')->name('register');
 //Route::post('registerUser', 'App\Http\Controllers\UsersController@newUser')->name('registerUser');

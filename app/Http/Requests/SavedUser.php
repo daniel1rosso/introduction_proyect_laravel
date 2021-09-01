@@ -25,8 +25,8 @@ class SavedUser extends FormRequest
     {
         return [
             'name' => 'required',
-            'email' => 'required',
-            'password' => 'required|string|min:8',
+            'email' => 'required|email',
+            'password' => 'required|string|min:8|confirmed',
             'rol_id' => 'required'
         ];
     }

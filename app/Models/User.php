@@ -38,4 +38,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function rol(){
+        return $this->belongsTo(Rol::class);
+    }
+
+    public function setPassword($password)
+    {
+        $this->attributes['password'] = bcrypt(($password));
+    }
 }
