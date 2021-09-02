@@ -31,10 +31,12 @@
                                 <td>{{ $user->rol->nombre }}</td>
                             </tr>
                             @endforeach
+                            <!--- <span class="row col-12" style="">{!! $users_systems->links() !!}</span> --->
+                            
                         </tbody>
                     </table>
                 @endif
-                <span style="font-size: 20px;font-weight: bold;color:blueviolet;">La cantidad de usuarios es: {{ count($users_systems) }}</span>
+                <span style="font-size: 20px;font-weight: bold;color:blueviolet;">La cantidad de usuarios en esta pagina es: {{ count($users_systems) }}</span>
                 
             </div>
         </div>

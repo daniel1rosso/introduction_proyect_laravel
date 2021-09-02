@@ -19,7 +19,7 @@ class RolTableSeeder extends Seeder
             'nombre'=>'Administrador'
         ]);
         Rol::create([
-            'nombre'=>'Usuario'
+            'nombre'=>'Chofer'
         ]);
     }
 }

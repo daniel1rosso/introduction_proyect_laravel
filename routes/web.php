@@ -2,6 +2,7 @@
 
 use App\Models\Rol;
 use App\Models\User;
+use App\http\Controllers\CarController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -52,3 +53,5 @@ Route::get('event', 'App\Http\Controllers\UsersController@user_event')->name('ev
 
 Route::get('register', 'App\Http\Controllers\UsersController@register')->name('register');
 //Route::post('registerUser', 'App\Http\Controllers\UsersController@newUser')->name('registerUser');
+
+Route::resource('cars', CarController::class);
