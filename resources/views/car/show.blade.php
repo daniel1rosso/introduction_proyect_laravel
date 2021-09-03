@@ -37,8 +37,8 @@
                             {{ $car->precio }}
                         </div>
                         <div class="form-group">
-                            <strong>User Id:</strong>
-                            {{ $car->user_id }}
+                            <strong>User:</strong>
+                            {{ $car->user->name }}
                         </div>
 
                     </div>

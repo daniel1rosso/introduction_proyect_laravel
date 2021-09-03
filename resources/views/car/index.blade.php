@@ -40,7 +40,7 @@
 										<th>Color</th>
 										<th>Modelo</th>
 										<th>Precio</th>
-										<th>User Id</th>
+										<th>User</th>
 
                                         <th></th>
                                     </tr>
@@ -54,7 +54,7 @@
 											<td>{{ $car->color }}</td>
 											<td>{{ $car->modelo }}</td>
 											<td>{{ $car->precio }}</td>
-											<td>{{ $car->user_id }}</td>
+											<td>{{ $car->user->name }}</td>
 
                                             <td>
                                                 <form action="{{ route('cars.destroy',$car->id) }}" method="POST">

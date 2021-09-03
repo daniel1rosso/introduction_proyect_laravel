@@ -19,8 +19,8 @@ class CarController extends Controller
      */
     public function index()
     {
-        $cars = Car::paginate();
-
+        $cars = Car::with('user')->paginate();
+     
         return view('car.index', compact('cars'))
             ->with('i', (request()->input('page', 1) - 1) * $cars->perPage());
     }
@@ -33,11 +33,14 @@ class CarController extends Controller
     public function create()
     {
         $car = new Car();
+
         $users = User::all();
-        $users_select = [];
+        $users_select=array("0"=>"Seleccione una opcion correcta");
         foreach ($users as $user) {
-            array_push($users_select, [$user->id => $user->name]); 
+            array_push($users_select,$users_select[$user->id] = $user->name);
         }
+        array_splice($users_select,-1);
+        
         return view('car.create', compact('car','users_select'));
     }
 
@@ -80,7 +83,14 @@ class CarController extends Controller
     {
         $car = Car::find($id);
 
-        return view('car.edit', compact('car'));
+        $users = User::all();
+        $users_select=array("0"=>"Seleccione una opcion correcta");
+        foreach ($users as $user) {
+            array_push($users_select,$users_select[$user->id] = $user->name);
+        }
+        array_splice($users_select,-1);
+        
+        return view('car.edit', compact('car','users_select'));
     }
 
     /**

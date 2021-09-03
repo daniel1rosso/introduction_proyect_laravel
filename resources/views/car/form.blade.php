@@ -22,9 +22,8 @@
             {!! $errors->first('precio', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('user_id') }}
-            -{{var_dump($users_select)}}
-            {!! Form::select('user_id', [null => 'Selecciones una opcion correcta'] + ['Albania' => 'Albania','Kosovo'=>'Kosovo','Germany'=>'Germany','France'=>'France'], null, ['class' => 'form-control']) !!}
+            {{ Form::label('User') }}
+            {!! Form::select('user_id', $users_select, $car->user_id, ['class' => 'form-control']) !!}
             {!! $errors->first('user_id', '<div class="invalid-feedback">:message</p>') !!}
         </div>
 

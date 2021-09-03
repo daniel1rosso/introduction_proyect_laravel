@@ -63,6 +63,11 @@
                                 </a>
                             </li>
                             <li class="nav-item">
+                                <a id="navbarDropdown" class="nav-link" href="{{ route('cars.index') }}" role="button" v-pre>
+                                    Cars
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a id="navbarDropdown" class="nav-link" href="{{ route('users') }}" role="button" v-pre>
                                     Users
                                 </a>
